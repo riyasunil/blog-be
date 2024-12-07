@@ -63,6 +63,11 @@ CORS_ALLOWED_ORIGINS = [
     "https://riamisu.site",
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://api.riamisu.site",
+    "https://riamisu.site",
+]
+
 ROOT_URLCONF = 'blog.urls'
 
 TEMPLATES = [
