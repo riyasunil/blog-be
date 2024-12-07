@@ -3,6 +3,9 @@ from .models import Blog
 from .serializers import BlogSerializer
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated , IsAdminUser
 from rest_framework.exceptions import NotFound
+from markdown import markdown
+from django.shortcuts import render, get_object_or_404
+
 
 
 
@@ -19,6 +22,7 @@ class BlogDetailView(generics.RetrieveAPIView):
     queryset = Blog.objects.all()
     permission_classes = [IsAuthenticatedOrReadOnly] 
     lookup_field = 'slug'
+
 
 class BlogCreateView(generics.CreateAPIView):
     serializer_class = BlogSerializer
@@ -37,3 +41,5 @@ class BlogUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
             return Blog.objects.get(slug=slug)
         except Blog.DoesNotExist:
             raise NotFound(detail="Blog with the specified slug does not exist.")
+        
+        
