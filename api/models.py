@@ -1,10 +1,12 @@
 from django.db import models
 from django.utils.text import slugify
+from ckeditor.fields import RichTextField
+
 
 # Create your models here.
 class Blog(models.Model):
     title = models.CharField(max_length=250, unique=True)
-    content = models.TextField()
+    content = RichTextField()
     created_at = models.DateField(auto_now_add=True)
     slug = models.SlugField(unique=True, blank=True)
 
