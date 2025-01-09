@@ -68,6 +68,8 @@ ENV/
 *.swp 
 *.swo 
 
+db.sqlite3
+
 # Sensitive/local settings
 local_settings.py
 
